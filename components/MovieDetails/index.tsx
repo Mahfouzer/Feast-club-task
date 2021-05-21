@@ -1,17 +1,19 @@
+
 import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 
-function MoviesList() {
+
+export default function MovieDetails() {
+
     const { navigate } = useNavigation();
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white' }}>
-            <TouchableWithoutFeedback onPress={() => navigate('MovieDetails')}>
-                <Text>go to Movie Details</Text>
+            <TouchableWithoutFeedback onPress={() => navigate('Movies')}>
+                <Text>Movie Details</Text>
             </TouchableWithoutFeedback>
+
         </View>
     );
 }
-
-export default MoviesList;
