@@ -1,7 +1,8 @@
 const COLORS = {
     WHITE: "white",
     BLACK: "black",
-    GREEN: "green"
+    GREEN: "green",
+    GREY: "#DEDEDE"
 }
 
 const FONT_SIZES = {
