@@ -2,6 +2,7 @@
 import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import Actorslist from '../ActorsList';
 import TagsList from '../TagsList';
 
 
@@ -16,6 +17,7 @@ export default function MovieDetails() {
             </TouchableWithoutFeedback>
 
             <TagsList tags={['new', 'old', 'modern']} />
+            <Actorslist actors={[{ name: 'jack' }, { name: 'jimmy' }]} />
         </View>
     );
 }
