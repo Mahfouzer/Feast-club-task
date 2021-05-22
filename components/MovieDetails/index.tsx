@@ -21,11 +21,7 @@ export default function MovieDetails() {
             <Text style={styles.headerText}>Genres</Text>
             <TagsList tags={['new', 'old', 'modern']} />
             <Text style={styles.headerText}>Credits</Text>
-            <Actorslist actors={[{ name: 'jack' }, { name: 'jimmy' }]} />
-            <Actorslist actors={[{ name: 'jack' }, { name: 'jimmy' }]} />
-            <Actorslist actors={[{ name: 'jack' }, { name: 'jimmy' }]} />
-
-
+            <Actorslist actors={[{ name: 'Jonny' }, { name: 'jimmy' }]} />
         </ScrollView>
     );
 }
