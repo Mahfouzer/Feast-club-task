@@ -2,6 +2,8 @@
 import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
 import { View, Text, TouchableWithoutFeedback, StyleSheet, Image, ScrollView } from 'react-native';
+import { useQuery } from 'react-query';
+import API from '../../api';
 import { FONT_SIZES } from '../../constants';
 import Actorslist from '../ActorsList';
 import TagsList from '../TagsList';
@@ -9,6 +11,7 @@ import TagsList from '../TagsList';
 
 export default function MovieDetails({ fullMovieData }: any) {
 
+    const { data: actorsData, isLoading: actorsDataisloading, error: actorsDataerror } = useQuery([fullMovieData.id, "MovieActors"], () => API.fetchActors(fullMovieData.id));
 
     return (
         <ScrollView contentContainerStyle={styles.Container}>
@@ -20,7 +23,7 @@ export default function MovieDetails({ fullMovieData }: any) {
             <Text style={styles.headerText}>Genres</Text>
             <TagsList tags={fullMovieData?.genres.map((genre: any) => genre.name)} />
             <Text style={styles.headerText}>Credits</Text>
-            <Actorslist actors={[{ name: 'Jonny' }, { name: 'jimmy' }]} />
+            { (actorsDataerror || actorsDataerror) || <Actorslist actors={actorsData?.data.cast} />}
         </ScrollView>
     );
 }
