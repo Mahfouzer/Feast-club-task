@@ -4,9 +4,9 @@ import { apiRequest } from "../Utils/axios";
 const secretKey = "4f298a53e552283bee957836a529baec";
 
 const API = {
-    fetchPopularMovies() { return apiRequest("GET", "/discover/movie", null, { api_key: secretKey, language: "en-US", sort_by: "revenue.asc" }) },
-    fetchUpcomingMovies() { return apiRequest("GET", "/discover/movie", null, { api_key: secretKey, language: "en-US", sort_by: "release_date.dec" }) },
-    fetchTopRatedMovies() { return apiRequest("GET", "/discover/movie", null, { api_key: secretKey, language: "en-US", sort_by: "vote_average.asc" }) },
+    fetchPopularMovies() { return apiRequest("GET", "/movie/popular", null, { api_key: secretKey, language: "en-US" }) },
+    fetchUpcomingMovies() { return apiRequest("GET", "/movie/upcoming", null, { api_key: secretKey, language: "en-US" }) },
+    fetchTopRatedMovies() { return apiRequest("GET", "/movie/top_rated", null, { api_key: secretKey, language: "en-US" }) },
 
 }
 

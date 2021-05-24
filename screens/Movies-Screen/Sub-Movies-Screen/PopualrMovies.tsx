@@ -6,7 +6,7 @@ import MoviesList from '../../../components/MoviesList'
 
 export default function PopualrMovies() {
 
-    const { isError, isLoading, data, refetch } = useQuery('PopualrMovies', () => API.fetchPopularMovies());
+    const { isError, isLoading, data, } = useQuery('PopualrMovies', () => API.fetchPopularMovies());
 
     return (
         <View>

@@ -8,7 +8,7 @@ export default function UpComingMovies() {
 
 
 
-    const { isError, isLoading, data, refetch } = useQuery('UpComingMovies', () => API.fetchUpcomingMovies());
+    const { isError, isLoading, data, } = useQuery('UpComingMovies', () => API.fetchUpcomingMovies());
 
     return (
         <View>

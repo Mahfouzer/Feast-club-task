@@ -3,18 +3,20 @@ import { View, Text, StyleSheet, Image } from 'react-native'
 import { COLORS, FONT_SIZES } from '../../constants'
 import TagsList from '../TagsList'
 
-export default function index() {
+export default function index({ movieData }: any) {
+
+    console.log(movieData);
     return (
         <View style={styles.movieContainer}>
-            <Image style={styles.moviePoster} source={require('../../assets/images/movieThumbnail.png')} />
+            <Image style={styles.moviePoster} source={{ uri: `https://image.tmdb.org/t/p/w300/${movieData.poster_path}` }} />
             <View style={styles.movieDetails}>
 
-                <Text style={styles.MovieName}>Movie Card</Text>
-                <Text style={styles.movieDate}>23, May 2020</Text>
+                <Text style={styles.MovieName}>{movieData.title}</Text>
+                <Text style={styles.movieDate}>{movieData.release_date}</Text>
                 <View style={styles.tagsContainer}>
                     <TagsList tags={["old", "great"]} />
                 </View>
-                <Text style={styles.movieRating}>60%</Text>
+                <Text style={styles.movieRating}>{movieData.vote_average && `${movieData.vote_average * 10}%`}</Text>
 
             </View>
 
@@ -24,9 +26,8 @@ export default function index() {
 
 const styles = StyleSheet.create({
     movieContainer: {
-        height: 170,
+        height: 200,
         borderRadius: 10,
-        alignSelf: 'stretch',
         margin: 15,
         backgroundColor: COLORS.WHITE,
         flexDirection: 'row',
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
     },
     movieDate: { marginLeft: 10 },
     moviePoster: {
-        height: 150,
+        height: 180,
         width: 100,
         margin: 10,
         borderRadius: 10
@@ -51,10 +52,11 @@ const styles = StyleSheet.create({
     },
     movieRating: {
         alignSelf: "flex-end",
-        marginRight: 10,
         color: COLORS.GREEN,
         fontWeight: "bold",
         fontSize: FONT_SIZES.SUBHEADING,
-        marginTop: -7
+        position: "absolute",
+        bottom: 10,
+        right: 10
     }
 })
