@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import MovieCard from '../MovieCard';
 
 function MoviesList({ list, isLodingList, hasError }: any) {
@@ -21,9 +21,5 @@ function MoviesList({ list, isLodingList, hasError }: any) {
     );
 }
 
-const styles = StyleSheet.create({
-    MovieListContainer: { alignItems: 'center', justifyContent: 'center' },
-    MovieStyle: { alignSelf: "stretch" }
-})
 
 export default MoviesList;
