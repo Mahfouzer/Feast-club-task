@@ -1,35 +1,25 @@
 import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
-import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, StyleSheet, FlatList } from 'react-native';
 import MovieCard from '../MovieCard';
 
-function MoviesList() {
+function MoviesList({ list, isLodingList, hasError }: any) {
     const { navigate } = useNavigation();
 
+    if (isLodingList) return <Text>loading ...</Text>;
+    if (hasError) return <Text>Something went wrong please try again later</Text>
+
     return (
-        <ScrollView contentContainerStyle={styles.MovieListContainer}>
-            <TouchableOpacity style={styles.MovieStyle} onPress={() => navigate("MovieDetails")}>
-                <MovieCard />
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.MovieStyle} onPress={() => navigate("MovieDetails")}>
-                <MovieCard />
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.MovieStyle} onPress={() => navigate("MovieDetails")}>
-                <MovieCard />
-            </TouchableOpacity>
-
-
-            <TouchableOpacity style={styles.MovieStyle} onPress={() => navigate("MovieDetails")}>
-                <MovieCard />
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.MovieStyle} onPress={() => navigate("MovieDetails")}>
-                <MovieCard />
-            </TouchableOpacity>
-
-        </ScrollView>
+        <View>
+            <FlatList
+                data={list}
+                renderItem={({ item }: any) => {
+                    return <TouchableOpacity style={styles.MovieStyle} onPress={() => navigate("MovieDetails")}>
+                        <MovieCard movieData={item} />
+                    </TouchableOpacity>
+                }}
+            />
+        </View>
     );
 }
 

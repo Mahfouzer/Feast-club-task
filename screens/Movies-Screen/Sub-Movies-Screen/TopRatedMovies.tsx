@@ -11,7 +11,7 @@ export default function TopRatedMovies() {
 
     return (
         <View>
-            <MoviesList />
+            <MoviesList list={data?.data.results} isLodingList={isLoading} hasError={isError} />
         </View>
     )
 }

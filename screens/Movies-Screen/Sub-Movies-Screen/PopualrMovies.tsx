@@ -10,7 +10,7 @@ export default function PopualrMovies() {
 
     return (
         <View>
-            <MoviesList />
+            <MoviesList list={data?.data.results} isLodingList={isLoading} hasError={isError} />
         </View>
     )
 }

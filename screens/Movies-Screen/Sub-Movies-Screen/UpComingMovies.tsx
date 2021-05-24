@@ -12,7 +12,7 @@ export default function UpComingMovies() {
 
     return (
         <View>
-            <MoviesList />
+            <MoviesList list={data?.data.results} isLodingList={isLoading} hasError={isError} />
         </View>
     )
 }
