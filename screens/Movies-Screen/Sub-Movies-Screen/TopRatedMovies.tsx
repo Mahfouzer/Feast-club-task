@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import { useQueries, useQuery } from 'react-query';
+import { useQuery } from 'react-query';
 import API from '../../../api';
 import MoviesList from '../../../components/MoviesList'
 

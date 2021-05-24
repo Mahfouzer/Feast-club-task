@@ -1,11 +1,16 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native'
+import { useQuery } from 'react-query';
+import API from '../../api';
 import { COLORS, FONT_SIZES } from '../../constants'
 import TagsList from '../TagsList'
 
 export default function index({ movieData }: any) {
 
     console.log(movieData);
+
+    const { data: fullMovieData, isLoading: isFullMovieDataLoading } = useQuery([movieData.id, "movie"], () => API.fetchMovie(movieData.id));
+
     return (
         <View style={styles.movieContainer}>
             <Image style={styles.moviePoster} source={{ uri: `https://image.tmdb.org/t/p/w300/${movieData.poster_path}` }} />
@@ -14,7 +19,7 @@ export default function index({ movieData }: any) {
                 <Text style={styles.MovieName}>{movieData.title}</Text>
                 <Text style={styles.movieDate}>{movieData.release_date}</Text>
                 <View style={styles.tagsContainer}>
-                    <TagsList tags={["old", "great"]} />
+                    {isFullMovieDataLoading || <TagsList tags={fullMovieData?.data.genres.map((genre: any) => genre.name)} />}
                 </View>
                 <Text style={styles.movieRating}>{movieData.vote_average && `${movieData.vote_average * 10}%`}</Text>
 
