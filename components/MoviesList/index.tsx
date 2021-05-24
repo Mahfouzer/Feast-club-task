@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
-import { View, Text, TouchableOpacity, ScrollView, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
 import MovieCard from '../MovieCard';
 
 function MoviesList({ list, isLodingList, hasError }: any) {
@@ -13,11 +13,9 @@ function MoviesList({ list, isLodingList, hasError }: any) {
         <View>
             <FlatList
                 data={list}
-                renderItem={({ item }: any) => {
-                    return <TouchableOpacity style={styles.MovieStyle} onPress={() => navigate("MovieDetails")}>
-                        <MovieCard movieData={item} />
-                    </TouchableOpacity>
-                }}
+                renderItem={({ item }: any) =>
+                    <MovieCard movieData={item} />
+                }
             />
         </View>
     );

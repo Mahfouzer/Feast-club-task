@@ -1,5 +1,6 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import { useQuery } from 'react-query';
 import API from '../../api';
 import { COLORS, FONT_SIZES } from '../../constants'
@@ -7,25 +8,25 @@ import TagsList from '../TagsList'
 
 export default function index({ movieData }: any) {
 
-    console.log(movieData);
+    const { navigate } = useNavigation();
 
     const { data: fullMovieData, isLoading: isFullMovieDataLoading } = useQuery([movieData.id, "movie"], () => API.fetchMovie(movieData.id));
 
     return (
-        <View style={styles.movieContainer}>
-            <Image style={styles.moviePoster} source={{ uri: `https://image.tmdb.org/t/p/w300/${movieData.poster_path}` }} />
-            <View style={styles.movieDetails}>
-
-                <Text style={styles.MovieName}>{movieData.title}</Text>
-                <Text style={styles.movieDate}>{movieData.release_date}</Text>
-                <View style={styles.tagsContainer}>
-                    {isFullMovieDataLoading || <TagsList tags={fullMovieData?.data.genres.map((genre: any) => genre.name)} />}
+        <TouchableOpacity onPress={() => navigate("MovieDetails", { data: fullMovieData })}>
+            <View style={styles.movieContainer}>
+                <Image style={styles.moviePoster} source={{ uri: `https://image.tmdb.org/t/p/w300/${movieData.poster_path}` }} />
+                <View style={styles.movieDetails}>
+                    <Text style={styles.MovieName}>{movieData.title}</Text>
+                    <Text style={styles.movieDate}>{movieData.release_date}</Text>
+                    <View style={styles.tagsContainer}>
+                        {isFullMovieDataLoading || <TagsList tags={fullMovieData?.data.genres.map((genre: any) => genre.name)} />}
+                    </View>
+                    <Text style={styles.movieRating}>{movieData.vote_average && `${movieData.vote_average * 10}%`}</Text>
                 </View>
-                <Text style={styles.movieRating}>{movieData.vote_average && `${movieData.vote_average * 10}%`}</Text>
 
             </View>
-
-        </View>
+        </TouchableOpacity>
     )
 }
 
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
         borderRadius: 10
     },
     tagsContainer: {
-        height: 80,
+        height: 55,
         marginLeft: -10
     },
     movieDetails: {
