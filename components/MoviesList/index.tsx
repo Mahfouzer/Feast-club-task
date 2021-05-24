@@ -1,10 +1,8 @@
-import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
 import { View, Text, FlatList } from 'react-native';
 import MovieCard from '../MovieCard';
 
 function MoviesList({ list, isLodingList, hasError }: any) {
-    const { navigate } = useNavigation();
 
     if (isLodingList) return <Text>loading ...</Text>;
     if (hasError) return <Text>Something went wrong please try again later</Text>
