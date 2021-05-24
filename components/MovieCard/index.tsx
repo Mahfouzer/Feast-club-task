@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         height: 170,
         borderRadius: 10,
         alignSelf: 'stretch',
-        margin: 25,
+        margin: 15,
         backgroundColor: COLORS.WHITE,
         flexDirection: 'row',
     },
@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
         marginRight: 10,
         color: COLORS.GREEN,
         fontWeight: "bold",
-        fontSize: FONT_SIZES.SUBHEADING
+        fontSize: FONT_SIZES.SUBHEADING,
+        marginTop: -7
     }
 })
