@@ -2,7 +2,8 @@ const COLORS = {
     WHITE: "white",
     BLACK: "black",
     GREEN: "green",
-    GREY: "#DEDEDE"
+    GREY: "#DEDEDE",
+    BACKGROUND: "#f1f1f1"
 }
 
 const FONT_SIZES = {
@@ -14,7 +15,7 @@ const FONT_SIZES = {
 const AppTheme = {
     dark: false, colors: {
         primary: 'rgb(255, 45, 85)',
-        background: COLORS.WHITE,
+        background: COLORS.BACKGROUND,
         card: 'rgb(255, 255, 255)',
         text: 'rgb(28, 28, 30)',
         border: 'rgb(199, 199, 204)',

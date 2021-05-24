@@ -7,7 +7,7 @@ function MoviesList() {
     const { navigate } = useNavigation();
 
     return (
-        <ScrollView contentContainerStyle={{ alignItems: 'center', justifyContent: 'center', backgroundColor: "#f1f1f1" }}>
+        <ScrollView contentContainerStyle={styles.MovieListContainer}>
             <TouchableOpacity style={styles.MovieStyle} onPress={() => navigate("MovieDetails")}>
                 <MovieCard />
             </TouchableOpacity>
@@ -28,14 +28,13 @@ function MoviesList() {
             <TouchableOpacity style={styles.MovieStyle} onPress={() => navigate("MovieDetails")}>
                 <MovieCard />
             </TouchableOpacity>
-
-
 
         </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
+    MovieListContainer: { alignItems: 'center', justifyContent: 'center' },
     MovieStyle: { alignSelf: "stretch" }
 })
 
