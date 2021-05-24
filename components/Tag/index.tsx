@@ -12,8 +12,8 @@ export default function Tag({ redtagText }: { redtagText: string }) {
 
 const styles = StyleSheet.create({
     tagStyle: {
-        marginTop: 10, backgroundColor: COLORS.GREY, marginRight: 10,
-        padding: 17, paddingTop: 5, paddingBottom: 10, borderRadius: 20
+        marginTop: 10, marginBottom: 10, backgroundColor: COLORS.GREY, marginRight: 10,
+        padding: 17, paddingTop: 5, paddingBottom: 10, borderRadius: 20, height: 35
     },
     tagTextStyle: { fontWeight: "bold" }
 })

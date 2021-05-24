@@ -19,5 +19,5 @@ export default function TagsList({ tags }: { tags: any[] }) {
 
 
 const styles = StyleSheet.create({
-    tagListContainer: { alignSelf: 'flex-start', paddingLeft: 20, marginBottom: 20 }
+    tagListContainer: { alignSelf: 'flex-start', paddingLeft: 20 }
 })
